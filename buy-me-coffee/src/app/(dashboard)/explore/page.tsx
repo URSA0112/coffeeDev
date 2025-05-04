@@ -1,6 +1,6 @@
 'use client'
 import { BASE_URL } from "@/app/constants/routes";
-import ExplorePage from "@/components/Dashboard🧱/explore/explore";
+import ExplorePage from "@/components/Dashboard🧱/2-explore/explore";
 import axios from "axios";
 
 
@@ -22,7 +22,7 @@ export default function Explore() {
     };
 
     return (
-        <div className="bg-pink-200 w-full h-full">
+        <div className="bg-pink-200 w-full h-full p-10">
             Explore
             <ExplorePage></ExplorePage>
             <button onClick={check} className="w-20 h-20 bg-amber-600"> Check API</button>

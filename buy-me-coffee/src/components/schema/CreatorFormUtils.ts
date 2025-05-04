@@ -1,3 +1,4 @@
+import { abortOnSynchronousPlatformIOAccess } from "next/dist/server/app-render/dynamic-rendering"
 import { z } from "zod"
 
 
@@ -8,7 +9,7 @@ export const ProfileSchema = z.object({
     .min(1, "Name is required")
     .min(2, "Name must be at least 2 characters"),
 
-  bio: z
+  about: z
     .string()
     .min(1, "Bio is required")
     .max(300, "Bio can't be longer than 300 characters"),
@@ -19,7 +20,7 @@ export const ProfileSchema = z.object({
       z.string().min(1) // this handles Cloudinary URL or preview
     ]),
 
-  socialMediaURL: z
+  socialmediaUrl: z
     .string()
     .min(1, "Social media URL is required")
     .url("Must be a valid URL"),

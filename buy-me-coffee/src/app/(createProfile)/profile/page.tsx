@@ -19,17 +19,17 @@ export default function CreateProfile() {
     // On Continue logic
     const onContinue = async (values: ProfileType) => {
         console.log('🛠️ Form values before upload:', values);
-        if (!userId || !values.name || !values.bio || !imagePreview || !values.socialMediaURL) {
+        if (!userId || !values.name || !values.about || !imagePreview || !values.socialmediaUrl) {
             console.log("⚠️ Missing required fields");
             toast("⚠️ Missing required fields");
             return;
         }
         setProfile({
-            user_id: userId,
-            username: values.name,
-            about: values.bio,
+            userId: userId,
+            name: values.name,
+            about: values.about,
             image: imagePreview,
-            social_media_url: values.socialMediaURL,
+            socialmediaUrl: values.socialmediaUrl
         });
         setFormProfileFilled(true)
     };

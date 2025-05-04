@@ -1,9 +1,9 @@
 export type UserProfileType = {
-  user_id: string;
-  username: string;
+  userId: string;
+  name: string;
   about: string;
   image: string;
-  social_media_url: string;
+  socialmediaUrl: string;
   bg_image?: string;
 };
 

@@ -61,7 +61,7 @@ export default function CreatorFormPayment({ imageFile }: { imageFile: File | nu
                 name: profile?.username,
                 about: profile?.about,
                 image: imageUrl,
-                socialUrl: profile?.social_media_url,
+                socialUrl: profile?.socialmediaUrl,
                 userId: user?.id,
             }, {
                 headers: {
