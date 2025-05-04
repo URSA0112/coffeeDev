@@ -1,5 +1,5 @@
-import SignIn from "@/components/auth/SignIn";
-import YellowHalf from "@/components/auth/YellowHalf";
+import SignIn from "@/components/Authentication🧱/SignIn";
+import YellowHalf from "@/components/Authentication🧱/YellowHalf";
 
 export default function Login() {
     return (

@@ -34,15 +34,3 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_Y29tcGxldGUtZ3JvdXBlci02MC5jbGVyay5hY2NvdW50cy5kZXYk
-CLERK_SECRET_KEY=sk_test_UXr7RxaesXMeBt9kxXrQ5Ldwr7MoKxGrBqHwNnNrJx
-
-NEXT_PUBLIC_CLERK_SIGN_IN_URL=/signIn
-NEXT_PUBLIC_CLERK_SIGN_UP_URL=/signUp
-NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/createProfile
-NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/createProfile
-
-BASE_URL=http://localhost:3001
-NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=df4naqoki
-NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET=buy-me-coffee

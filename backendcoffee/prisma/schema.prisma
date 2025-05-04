@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  userId    String     @id
+  email     String?    @unique
+  username  String?    @unique
+  createdAt DateTime   @default(now())
+  donations Donation[]
+  profile   Profile?
+}
+
+model Profile {
+  userId    String  @id
+  name      String
+  image     String?
+  about     String?
+  socialUrl String?
+  user      User    @relation(fields: [userId], references: [userId], onDelete: Cascade)
+}
+
+model Donation {
+  id        String   @id @default(cuid())
+  amount    Float
+  message   String?
+  supporter String?
+  userId    String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [userId], onDelete: Cascade)
+}

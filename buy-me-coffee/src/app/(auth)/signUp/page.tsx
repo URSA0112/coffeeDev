@@ -1,5 +1,5 @@
-import SignUp from "@/components/auth/SignUp";
-import YellowHalf from "@/components/auth/YellowHalf";
+import SignUp from "@/components/Authentication🧱/SignUp";
+import YellowHalf from "@/components/Authentication🧱/YellowHalf";
 
 export default function register() {
     return (
