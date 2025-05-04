@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { corsHeaders, RequestOptions } from "@/lib/cors";
+import { corsHeaders, RequestOptions } from "@/lib/option";
 import { checkUserExists } from "@/lib/existingUser";
 
 export function OPTIONS() {
@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
         });
 
         return NextResponse.json({ success: true, newUser },
-            
+
             { status: 201, headers: corsHeaders, });
 
     } catch (error: any) {

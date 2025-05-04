@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { corsHeaders, RequestOptions } from "@/lib/cors";
+import { corsHeaders, RequestOptions } from "@/lib/option";
 import { checkProfileExists } from "@/lib/existingUser";
 import { cors } from "@/lib/resHeader";
 
@@ -43,20 +43,38 @@ export async function POST(req: NextRequest) {
     }
 }
 
-// ✅ Get All Profiles
-export async function GET() {
-    try {
-        const profiles = await prisma.profile.findMany({
-            include: {
-                user: true,
-            },
-        });
 
-        return NextResponse.json({ success: true, profiles });
+export async function GET(req: NextRequest) {
+    const { searchParams } = new URL(req.url);
+    const userId = searchParams.get("userId");
+
+    try {
+        if (userId) {
+            // ✅ Get ONE Profile
+            const profile = await prisma.profile.findUnique({
+                where: { userId },
+            });
+
+            if (!profile) {
+                return cors({ success: false, message: "Profile not found" }, 404);
+            }
+
+            return cors({ success: true, profile }, 200);
+        } else {
+            // ✅ Get ALL Profiles
+            const profiles = await prisma.profile.findMany({
+                include: {
+                    user: true,
+                },
+            });
+
+            return cors({ success: true, profiles }, 200);
+        }
     } catch (error: any) {
-        return NextResponse.json({ success: false, message: error.message }, { status: 500, headers: corsHeaders });
+        return cors({ success: false, message: error.message }, 500);
     }
 }
+
 
 // ✅ Update Profile
 export async function PUT(req: NextRequest) {
